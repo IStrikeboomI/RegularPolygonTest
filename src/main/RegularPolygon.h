@@ -64,14 +64,14 @@ class RegularPolygon
 {
 	private:
 		unsigned int sides = 3;
-		double singleSideLength = 0;
-		double perimeter = 0;
-		double totalInteriorAngles = 0;
-		double singleInteriorAngle = 0;
-		double singleExteriorAngle = 0;
-		double apothem = 0;
-		double radius = 0;
-		double area = 0;
+		double singleSideLength = 0,
+			perimeter = 0,
+			totalInteriorAngles = 0,
+			singleInteriorAngle = 0,
+			singleExteriorAngle = 0,
+			apothem = 0,
+			radius = 0,
+			area = 0;
 	public:
 		RegularPolygon(unsigned int sides=3) {
 			if (sides < 3) {
@@ -87,14 +87,19 @@ class RegularPolygon
 		unsigned int getSides() const { return sides; }
 		double getSingleSideLength() const { return singleSideLength; }
 		double getPerimeter() const { return perimeter; }
-		const double getTotalInteriorAngles() const { return totalInteriorAngles; }
-		const double getSingleInteriorAngle() const { return singleInteriorAngle; }
-		const double getSingleExteriorAngle() const { return singleExteriorAngle; }
+		 double getTotalInteriorAngles() const { return totalInteriorAngles; }
+		 double getSingleInteriorAngle() const { return singleInteriorAngle; }
+		 double getSingleExteriorAngle() const { return singleExteriorAngle; }
 		double getApothem() const { return apothem; }
 		double getRadius() const { return radius; }
 		double getArea() const { return area; }
 		//Converting degree to radians is done by degree * (pi/180)
 		//std::acos(-1) is pi
 		static double degreeToRadian(double degree) { return degree * (std::acos(-1) / 180); }
+		void setSingleSideLength(double singleSideLength);
+		void setPerimeter(double perimeter);
+		void setApothem(double apothem);
+		void setRadius(double radius);
+		void setArea(double area);
 };
 
