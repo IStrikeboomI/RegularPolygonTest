@@ -34,11 +34,11 @@
       a |  \ r
         |   \
         |    \
-        |   x \
+        |   0 \
          -----
 		 s/2
 		
-		Since you already know the interior angle based on the amount of sides, you can find x by the number of sides
+		Since you already know the interior angle based on the amount of sides, you can find 0 by the number of sides
 		you also only need one of the three numbers for the triangle to solve the rest because it's a right triangle and you have the angle
 		Using trigonometry you can find the other sides
 		c++ trigonometry using std uses radians instead of degrees
@@ -49,7 +49,7 @@
 		finding radius with only a can be done with a / sin(radian)
 		finding radius with only s/2 can be done with (s/2) / cos(radian)
 		finding s/2 with only a can be done with a / tan(radian)
-		finding s/2 with only r can be done with r * cos(1.1781)
+		finding s/2 with only r can be done with r * cos(radian)
 
 		Lets say we have a regular octogon (8 sides) with side length of 4	
 		an octogon has a single interior angle of 135
@@ -66,14 +66,15 @@ class RegularPolygon
 		unsigned int sides = 3;
 		double singleSideLength = 0,
 			perimeter = 0,
-			totalInteriorAngles = 0,
-			singleInteriorAngle = 0,
-			singleExteriorAngle = 0,
 			apothem = 0,
 			radius = 0,
-			area = 0;
+			area = 0,
+			totalInteriorAngles = 0,
+			singleInteriorAngle = 0,
+			singleExteriorAngle = 0;
 	public:
-		RegularPolygon(unsigned int sides=3) {
+		//Sides defaults to 3 because 3 is the min number of sides possible for polygons
+		RegularPolygon(int sides=3) {
 			if (sides < 3) {
 				throw std::invalid_argument("polygon sides cannont be lower than 3 sides");
 			}
@@ -100,6 +101,6 @@ class RegularPolygon
 		void setPerimeter(double perimeter);
 		void setApothem(double apothem);
 		void setRadius(double radius);
-		void setArea(double area);
+		friend std::ostream& operator<<(std::ostream& output, const RegularPolygon& regularPolygon);
 };
 
